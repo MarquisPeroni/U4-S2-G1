@@ -13,10 +13,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             $row = $result->fetch_array(MYSQLI_ASSOC);
             if(password_verify($password, $row['password'])){
                 session_start();
+
+                $_SESSION['logged'] = true;
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['username'] = $row['username'];
 
-                header("location: private.php");
+                header("location: ../private.php");
             }else{
                 echo "password errata";
             }

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
+if(!isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
     header("location: login.html");
     exit;
 }
@@ -22,5 +22,7 @@ if(isset($_SESSION["logged"]) || $_SESSION["logged"] !== true) {
     echo "Ciao " . $_SESSION["username"];
     
     ?>
+
+    <a href="./php/logout.php">logout</a>
 </body>
 </html>
